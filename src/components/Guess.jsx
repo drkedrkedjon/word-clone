@@ -1,15 +1,20 @@
 import React from "react";
+import { checkGuess } from "../game-helpers";
 
-export default function Guess({ guesses }) {
-  const splitLetters = guesses ? guesses.split("") : ["", "", "", "", ""];
+export default function Guess({ guess, answer }) {
+  const arrayLetras = guess ? checkGuess(guess, answer) : ["", "", "", "", ""];
 
   return (
     <p className="guess">
-      {splitLetters.map((letra, index) => (
-        <span key={index} className="cell">
-          {letra}
-        </span>
-      ))}
+      {arrayLetras.map((objeto) =>
+        objeto ? (
+          <span key={Math.random()} className={`cell ${objeto.status}`}>
+            {objeto.letter}
+          </span>
+        ) : (
+          <span key={Math.random()} className={"cell"}></span>
+        )
+      )}
     </p>
   );
 }
