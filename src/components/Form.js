@@ -8,7 +8,7 @@ export default function Form({ handleGuess }) {
     handleGuess(form)
     setForm('')
   }
-
+  console.log(form)
   return (
     <form
       className='guess-input-wrapper'

@@ -4,6 +4,8 @@ import { sample } from '../../utils';
 import { WORDS } from '../../data';
 import Form from '../Form'
 import Guess from '../Guess'
+import { range } from "../../utils";
+import { NUM_OF_GUESSES_ALLOWED } from "../../constants";
 
 // Pick a random word on every pageload.
 const answer = sample(WORDS);
@@ -17,11 +19,13 @@ function Game() {
     setGuesses(oldData => [...oldData, formImput])
   }
 
+  const filaArray = range(NUM_OF_GUESSES_ALLOWED);
+
   return (
     <>
-      <Guess
-        guesses={guesses}
-      />
+      <div className='guess-results'>
+        {filaArray.map(num => <Guess key={num} guesses={guesses[num]} />)}
+      </div>
       <Form
         handleGuess={handleGuess}
       />

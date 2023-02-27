@@ -1,11 +1,15 @@
 import React from "react";
 
 export default function Guess({ guesses }) {
+  const splitLetters = guesses ? guesses.split("") : ["", "", "", "", ""];
+
   return (
-    <div className="guess-results">
-      {guesses.map((guess, index) => {
-        return <p key={index}>{guess}</p>;
-      })}
-    </div>
+    <p className="guess">
+      {splitLetters.map((letra, index) => (
+        <span key={index} className="cell">
+          {letra}
+        </span>
+      ))}
+    </p>
   );
 }
