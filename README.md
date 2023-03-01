@@ -1,4 +1,4 @@
-# Word Game (Proyecto curso Joy of React)
+# Word Game (Proyecto clonado curso Joy of React + mis soluciones)
 
 ## Joy of React, Project I
 
